@@ -3,3 +3,5 @@ emoji:  https://www.webfx.com/tools/emoji-cheat-sheet/
 curso: https://www.youtube.com/watch?v=pWxDxhWXJos
 
 secondaryBackgroundColor="#063970"
+
+pip freeze > requirements.txt
