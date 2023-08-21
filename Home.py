@@ -5,6 +5,9 @@ from streamlit_option_menu import option_menu
 from numerize.numerize import numerize
 #from query import *
 import time
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 #Titulo da página da aplicação
 st.set_page_config(page_title="Aplicação Seguro de Imóveis", page_icon="🌍", layout="wide")
@@ -26,7 +29,6 @@ with open('style.css')as f:
  
 #load excel file
 df=pd.read_excel('data/data.xlsx', sheet_name='Sheet1')
-
 
 #switcher
 st.sidebar.header("Filtrar dados:")
@@ -65,19 +67,19 @@ def Home():
     total1,total2,total3,total4,total5=st.columns(5,gap='large')
     with total1:
         st.info('Total Investment',icon="📌")
-        st.metric(label="sum TZS",value=f"{total_investment:,.0f}")
+        st.metric(label="sum TZS",value=f"{total_investment:,.2f}")
 
     with total2:
         st.info('Most frequent',icon="📌")
-        st.metric(label="mode TZS",value=f"{investment_mode:,.0f}")
+        st.metric(label="mode TZS",value=f"{investment_mode:,.2f}")
 
     with total3:
         st.info('Average',icon="📌")
-        st.metric(label="average TZS",value=f"{investment_mean:,.0f}")
+        st.metric(label="average TZS",value=f"{investment_mean:,.2f}")
 
     with total4:
         st.info('Central Earnings',icon="📌")
-        st.metric(label="median TZS",value=f"{investment_median:,.0f}")
+        st.metric(label="median TZS",value=f"{investment_median:,.2f}")
 
     with total5:
         st.info('Ratings',icon="📌")
